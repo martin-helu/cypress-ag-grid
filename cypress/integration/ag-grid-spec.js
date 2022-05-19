@@ -371,79 +371,79 @@ function removePropertyFromCollection(expectedTableData, columnsToExclude) {
   return expectedTableData;
 }
 
-// /// THE BELOW METHODS SHOWCASE HOW TO DYNAMICALLY GET THE EXPECTED DATA AND MANIPULATE IT FOR VALIDATION
-// /// THIS INCLUDES PAGINATION, FILTERING, and COLUMN EXCLUSION
+ /// THE BELOW METHODS SHOWCASE HOW TO DYNAMICALLY GET THE EXPECTED DATA AND MANIPULATE IT FOR VALIDATION
+ /// THIS INCLUDES PAGINATION, FILTERING, and COLUMN EXCLUSION
 
-// export const carColumns = {
-//   year: "Year",
-//   make: "Make",
-//   model: "Model",
-//   price: "Price",
-// };
+ export const carColumns = {
+   year: "Year",
+   make: "Make",
+   model: "Model",
+   price: "Price",
+ };
 
-// /**
-//  * Returns ALL expected table data populated from the expected test data call and does not factor in pagination
-//  * @param columnsToExclude Provide an array of string values for columns to not return in the data set
-//  * @param filters a "\^" delimited string of all columns and values to search for in the grid (i.e. "Name=John Smith^Rate Plan=Standard"
-//  */
-// export function getExpectedTableData(columnsToExclude, filters) {
-//   let table = [];
+ /**
+  * Returns ALL expected table data populated from the expected test data call and does not factor in pagination
+  * @param columnsToExclude Provide an array of string values for columns to not return in the data set
+  * @param filters a "\^" delimited string of all columns and values to search for in the grid (i.e. "Name=John Smith^Rate Plan=Standard"
+  */
+ export function getExpectedTableData(columnsToExclude, filters) {
+   let table = [];
 
-//   // Get the expected table data from the cardata fixture file and process it with columns exclusions and filters
-//   return cy
-//     .fixture("cardata")
-//     .then((cars) => {
-//       table = cars;
-//     })
-//     .then(() => {
-//       // Iterate over all filter strings and filter table results in the order in which they are provided
-//       if (filters) {
-//         filters.split("^").forEach((filter) => {
-//           const [key, value] = filter.split("=");
-//           const getKey = getKeyByValue(carColumns, key);
-//           table = table.filter((a) => a[getKey].includes(value));
-//         });
-//       }
-//     })
-//     .then(() => {
-//       // Update the property key values to match what is represented in the grid for validation purposes
-//       // (i.e. in this example, we change make to Make, model to Model, and price to Price to match
-//       // what is shown in the grid headers exactly).
-//       for (const key in carColumns)
-//         table.forEach((obj) => renameKey(obj, key, carColumns[key]));
+   // Get the expected table data from the cardata fixture file and process it with columns exclusions and filters
+   return cy
+     .fixture("cardata")
+     .then((cars) => {
+       table = cars;
+     })
+     .then(() => {
+       // Iterate over all filter strings and filter table results in the order in which they are provided
+      if (filters) {
+        filters.split("^").forEach((filter) => {
+          const [key, value] = filter.split("=");
+          const getKey = getKeyByValue(carColumns, key);
+          table = table.filter((a) => a[getKey].includes(value));
+        });
+      }
+    })
+    .then(() => {
+      // Update the property key values to match what is represented in the grid for validation purposes
+      // (i.e. in this example, we change make to Make, model to Model, and price to Price to match
+      // what is shown in the grid headers exactly).
+      for (const key in carColumns)
+        table.forEach((obj) => renameKey(obj, key, carColumns[key]));
 
-//       //Exclude any specified columns
-//       if (columnsToExclude) {
-//         columnsToExclude.forEach((excludedColumn) => {
-//           table.forEach((obj) => deleteKey(obj, excludedColumn));
-//         });
-//       }
-//       return table;
-//     });
-// }
+      //Exclude any specified columns
+      if (columnsToExclude) {
+        columnsToExclude.forEach((excludedColumn) => {
+          table.forEach((obj) => deleteKey(obj, excludedColumn));
+        });
+      }
+      return table;
+    });
+}
 
-// /**
-//  * Returns ALL expected table data and paginates the data based on the pageSize
-//  * @param columnsToExclude Provide an array of string values for columns to not return in the data set
-//  * @param pageSize If no value is provided, default value of 5 items per page is used
-//  */
-// function getExpectedPaginatedTableData(columnsToExclude, pageSize = 5) {
-//   const paginatedTableData = [];
-//   // paginates the expected table data, and removes specified column exclusions
-//   return getExpectedTableData(columnsToExclude)
-//     .then((tableData) => {
-//       const pages = Math.floor(tableData.length / pageSize);
-//       const finalPageCount = tableData.length % pageSize;
-//       let iterator = 0;
-//       for (let i = 0; i < pages; i++) {
-//         paginatedTableData.push(tableData.slice(iterator, iterator + pageSize));
-//         iterator += pageSize;
-//       }
-//       paginatedTableData.push(
-//         tableData.slice(iterator, iterator + finalPageCount)
-//       );
-//     })
-//     .then(() => {
-//       return paginatedTableData;
-//     });
-// }
+/**
+ * Returns ALL expected table data and paginates the data based on the pageSize
+ * @param columnsToExclude Provide an array of string values for columns to not return in the data set
+ * @param pageSize If no value is provided, default value of 5 items per page is used
+ */
+function getExpectedPaginatedTableData(columnsToExclude, pageSize = 5) {
+  const paginatedTableData = [];
+  // paginates the expected table data, and removes specified column exclusions
+  return getExpectedTableData(columnsToExclude)
+    .then((tableData) => {
+      const pages = Math.floor(tableData.length / pageSize);
+      const finalPageCount = tableData.length % pageSize;
+      let iterator = 0;
+      for (let i = 0; i < pages; i++) {
+        paginatedTableData.push(tableData.slice(iterator, iterator + pageSize));
+        iterator += pageSize;
+      }
+      paginatedTableData.push(
+        tableData.slice(iterator, iterator + finalPageCount)
+      );
+    })
+    .then(() => {
+      return paginatedTableData;
+    });
+}
