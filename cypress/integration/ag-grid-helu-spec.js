@@ -104,34 +104,20 @@ describe("ag-grid scenarios", () => {
       });
 
       it("expand row and verify table", () => {
-        cy.get('.ag-group-value').contains('Cost').parent().children('.ag-group-contracted').click()
+        cy.get('.ag-group-value').contains('Expense').parent().children('.ag-group-contracted').click()
         cy.wait(1000)
         const expectedTableData = [
-            {"EUR":"Revenues","Value":"67.942,59"},
-            {"EUR":"Cost","Value":"38.012,46"},
-            {"EUR":"5400 Cost of merchandise, 19% input tax","Value":"215,03"},
-            {"EUR":"5400 Cost of merchandise, 19% input tax","Value":"163,86"},
-            {"EUR":"5400 Cost of merchandise, 19% input tax","Value":"161,88"},
-            {"EUR":"5400 Cost of merchandise, 19% input tax","Value":"114,61"},
-            {"EUR":"5400 Cost of merchandise, 19% input tax","Value":"249,57"},
-            {"EUR":"5425 Intra-European Union acquisitions, 19% input tax and 19% VAT","Value":"445,67"},
-            {"EUR":"5425 Intra-European Union acquisitions, 19% input tax and 19% VAT","Value":"449,12"},
-            {"EUR":"5425 Intra-European Union acquisitions, 19% input tax and 19% VAT","Value":"468,41"},
-            {"EUR":"5425 Intra-European Union acquisitions, 19% input tax and 19% VAT","Value":"466,14"},
-            {"EUR":"5425 Intra-European Union acquisitions, 19% input tax and 19% VAT","Value":"399,58"},
-            {"EUR":"5552 Acquisition by 1st purchaser in a triangular transaction","Value":"1.297,59"},
-            {"EUR":"5552 Acquisition by 1st purchaser in a triangular transaction","Value":"1.273,91"},
-            {"EUR":"5552 Acquisition by 1st purchaser in a triangular transaction","Value":"1.329,21"},
-            {"EUR":"5552 Acquisition by 1st purchaser in a triangular transaction","Value":"1.214,83"},
-            {"EUR":"5552 Acquisition by 1st purchaser in a triangular transaction","Value":"1.318,70"},
-            {"EUR":"5900 Purchased services","Value":"451,85"},
-            {"EUR":"5900 Purchased services","Value":"318,41"},
-            {"EUR":"5900 Purchased services","Value":"368,28"},
-            {"EUR":"5900 Purchased services","Value":"452,19"},
-            {"EUR":"5900 Purchased services","Value":"426,25"},
-            {"EUR":"5901 Purchased services","Value":"507,73"},
-            {"EUR":"Expense","Value":"73.920,19"},
-            {"EUR":"Other operating revenue","Value":"688,60"},
+          {"EUR":"Revenues","Value":"67.942,59"},
+          {"EUR":"Cost","Value":"38.012,46"},
+          {"EUR":"Expense","Value":"73.920,19"},
+          {"EUR":"Personnel","Value":"7.115,16"},
+          {"EUR":"Other","Value":"35.172,13"},
+          {"EUR":"Insurance & contribution","Value":"6.738,41"},
+          {"EUR":"Advertising & travel","Value":"15.835,83"},
+          {"EUR":"Physical space","Value":"4.087,75"},
+          {"EUR":"Repair & maintenance","Value":"2.137,16"},
+          {"EUR":"Vehicle","Value":"2.833,75"},
+          {"EUR":"Other operating revenue","Value":"688,60"},
         ];
         cy.get(agGridSelector)
           .getAgGridData()
