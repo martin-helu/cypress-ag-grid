@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="3.9420" tests="6" failures="1">
-  <testsuite name="Root Suite" timestamp="2022-05-30T08:51:38" tests="0" file="cypress/integration/ag-grid-helu-spec.js" time="0.0000" failures="0">
+<testsuites name="Mocha Tests" time="6.8290" tests="6" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-05-30T12:24:32" tests="0" file="cypress/integration/ag-grid-helu-spec.js" time="0.0000" failures="0">
   </testsuite>
-  <testsuite name="ag-grid scenarios" timestamp="2022-05-30T08:51:38" tests="6" time="3.9420" failures="1">
-    <testcase name="ag-grid scenarios verify table data" time="1.0400" classname="verify table data">
+  <testsuite name="ag-grid scenarios" timestamp="2022-05-30T12:24:32" tests="6" time="6.8290" failures="0">
+    <testcase name="ag-grid scenarios verify table data" time="1.3690" classname="verify table data">
     </testcase>
-    <testcase name="ag-grid scenarios filter table by checkbox" time="0.0000" classname="filter table by checkbox">
-      <failure message="The expected table data did not match the actual table data 
-EXPECTED:
-[{&quot;EUR&quot;:&quot;Revenues&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;42.160,87&quot;},{&quot;EUR&quot;:&quot;Cost&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;25.697,38&quot;},{&quot;EUR&quot;:&quot;Expense&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;44.233,57&quot;},{&quot;EUR&quot;:&quot;Other operating revenue&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;688,60&quot;}]
-ACTUAL:
-:[{&quot;EUR&quot;:&quot;Revenues&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;&quot;},{&quot;EUR&quot;:&quot;Revenues&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;42.160,87&quot;},{&quot;EUR&quot;:&quot;Cost&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;&quot;},{&quot;EUR&quot;:&quot;Cost&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;25.697,38&quot;},{&quot;EUR&quot;:&quot;Expense&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;&quot;},{&quot;EUR&quot;:&quot;Expense&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;44.233,57&quot;},{&quot;EUR&quot;:&quot;Other operating revenue&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;&quot;},{&quot;EUR&quot;:&quot;Other operating revenue&quot;,&quot;Year&quot;:&quot;&quot;,&quot;Value&quot;:&quot;688,60&quot;}]: expected [ Array(8) ] to deeply equal [ Array(4) ]" type="AssertionError"><![CDATA[AssertionError: The expected table data did not match the actual table data 
-EXPECTED:
-[{"EUR":"Revenues","Year":"","Value":"42.160,87"},{"EUR":"Cost","Year":"","Value":"25.697,38"},{"EUR":"Expense","Year":"","Value":"44.233,57"},{"EUR":"Other operating revenue","Year":"","Value":"688,60"}]
-ACTUAL:
-:[{"EUR":"Revenues","Year":"","Value":""},{"EUR":"Revenues","Year":"","Value":"42.160,87"},{"EUR":"Cost","Year":"","Value":""},{"EUR":"Cost","Year":"","Value":"25.697,38"},{"EUR":"Expense","Year":"","Value":""},{"EUR":"Expense","Year":"","Value":"44.233,57"},{"EUR":"Other operating revenue","Year":"","Value":""},{"EUR":"Other operating revenue","Year":"","Value":"688,60"}]: expected [ Array(8) ] to deeply equal [ Array(4) ]
-    at Context.eval (https://poc.helu.ninja/__cypress/tests?p=cypress\integration\ag-grid-helu-spec.js:172:30)]]></failure>
+    <testcase name="ag-grid scenarios filter table by checkbox" time="2.6740" classname="filter table by checkbox">
     </testcase>
-    <testcase name="ag-grid scenarios only validate select column data" time="0.3760" classname="only validate select column data">
+    <testcase name="ag-grid scenarios only validate select column data" time="0.3400" classname="only validate select column data">
     </testcase>
-    <testcase name="ag-grid scenarios remove column from grid and verify select column data" time="1.0120" classname="remove column from grid and verify select column data">
+    <testcase name="ag-grid scenarios remove column from grid and verify select column data" time="0.9910" classname="remove column from grid and verify select column data">
     </testcase>
-    <testcase name="ag-grid scenarios add column" time="1.0220" classname="add column">
+    <testcase name="ag-grid scenarios add column" time="1.0120" classname="add column">
     </testcase>
-    <testcase name="ag-grid scenarios expand row and verify table" time="0.4920" classname="expand row and verify table">
+    <testcase name="ag-grid scenarios expand row and verify table" time="0.4430" classname="expand row and verify table">
     </testcase>
   </testsuite>
 </testsuites>

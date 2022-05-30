@@ -58,6 +58,7 @@ describe("ag-grid scenarios", () => {
           },
           hasApplyButton: false,
         });
+        cy.wait(1000)
         cy.get(agGridSelector)
           .getAgGridData()
           .then((actualTableData) => {
