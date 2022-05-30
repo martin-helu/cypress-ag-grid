@@ -38,7 +38,7 @@ describe("ag-grid scenarios", () => {
           .then((actualTableData) => {
             cy.get(agGridSelector).agGridValidateRowsExactOrder(actualTableData, expectedTableData);
           });
-      });
+    });
 
     it("filter table by checkbox", () => {
 
@@ -64,9 +64,9 @@ describe("ag-grid scenarios", () => {
           .then((actualTableData) => {
             cy.get(agGridSelector).agGridValidateRowsExactOrder(actualTableData, expectedTableData);
           });
-      });
+    });
 
-      it("only validate select column data", () => {
+    it("only validate select column data", () => {
         const expectedTableData = [
             {"Value":"67.942,59"},
             {"Value":"38.012,46"},
@@ -78,9 +78,9 @@ describe("ag-grid scenarios", () => {
           .then((actualTableData) => {
             cy.get(agGridSelector).agGridValidateRowsSubset(actualTableData, expectedTableData);
           });
-      });
+    });
 
-      it("remove column from grid and verify select column data", () => {
+    it("remove column from grid and verify select column data", () => {
         cy.get(agGridSelector).agGridToggleColumnsSideBar("Value", true);
         cy.fixture("validata").then((expectedTableData) => {
           const expectedData_yearColumnRemoved = removePropertyFromCollection(
@@ -97,13 +97,13 @@ describe("ag-grid scenarios", () => {
               );
             });
         });
-      });
+    });
 
-      it("add column", () => {
+    it("add column", () => {
         cy.get("#app").agGridToggleColumnsSideBar("Year", false);
-      });
+    });
 
-      it("expand row and verify table", () => {
+    it("expand row and verify table", () => {
         cy.get('.ag-group-value').contains('Expense').parent().children('.ag-group-contracted').click()
         cy.wait(1000)
         const expectedTableData = [
@@ -125,5 +125,10 @@ describe("ag-grid scenarios", () => {
             cy.get(agGridSelector).agGridValidateRowsExactOrder(actualTableData, expectedTableData);
           });
 
-      });
+    });
+
+    it ("failing test", () => {
+
+      throw new Error('Test fails here');
+    });
 })
