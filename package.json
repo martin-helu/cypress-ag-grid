@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "test": "npx cypress run --headless --spec cypress/integration/ag-grid-spec.js",
-    "test:watch": "npx cypress open"
+    "test:watch": "npx cypress open",
+    "chrome-tests": "npx cypress run --browser chrome --headless --spec cypress/integration/ag-grid-helu-spec.js"
   },
   "author": "Kerry McKeever <kerry@kerrymckeever.com>",
   "license": "MIT",
