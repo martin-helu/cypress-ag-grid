@@ -127,8 +127,9 @@ describe("ag-grid scenarios", () => {
 
     });
 
-    it ("failing test", () => {
+    it ("fixed test", () => {
 
-      throw new Error('Test fails here');
+      //throw new Error('Test fails here');
+      cy.visit("https://poc.helu.ninja/#/");
     });
 })
