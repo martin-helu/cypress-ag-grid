@@ -87,6 +87,7 @@ describe("ag-grid scenarios", () => {
             expectedTableData,
             ["Value"]
           );
+          cy.wait(1000)
           cy.get(agGridSelector)
             .getAgGridData()
             .then((actualTableData) => {
@@ -104,7 +105,7 @@ describe("ag-grid scenarios", () => {
 
       it("expand row and verify table", () => {
         cy.get('.ag-group-value').contains('Cost').parent().children('.ag-group-contracted').click()
-
+        cy.wait(1000)
         const expectedTableData = [
             {"EUR":"Revenues","Value":"67.942,59"},
             {"EUR":"Cost","Value":"38.012,46"},
