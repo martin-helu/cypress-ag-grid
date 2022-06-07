@@ -1,5 +1,6 @@
+import "../support"
 describe("api tests", () => {
-    it("api testcase", () => {
+    it("api testcase",{ tags: '@smoke' } ,() => {
         cy.request('https://reqres.in/api/users/2')
         .should((response) => {
             expect(response.status).to.eq(200)

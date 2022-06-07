@@ -10,7 +10,7 @@ jobs:
         uses: cypress-io/github-action@v2.9.7
         with: 
           browser: chrome
-          spec: cypress/integration/ag-grid-helu-spec.js
+          spec: cypress/integration/*.js
           env: grepTags=@smoke
           
       
