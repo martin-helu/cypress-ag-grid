@@ -6,6 +6,7 @@ import {
   sortedCollectionByProperty,
 } from "../../src/helpers/arrayHelpers";
 import { filterOperator } from "../../src/agGrid/filterOperator.enum";
+import "../support"
 
 const _pageSize = 5;
 const agGridSelector = "#app";
@@ -26,7 +27,7 @@ describe("ag-grid scenarios", () => {
       cy.get(".ag-cell", {timeout: 10000}).should("be.visible");
     });
 
-    it("verify table data", () => {
+    it("verify table data",{ tags: '@smoke' } ,() => {
         const expectedTableData = [
             {"EUR":"Revenues","Value":"67.942,59"},
             {"EUR":"Cost","Value":"38.012,46"},
@@ -40,7 +41,7 @@ describe("ag-grid scenarios", () => {
           });
     });
 
-    it("filter table by checkbox", () => {
+    it("filter table by checkbox",{ tags: '@smoke' } ,() => {
 
 
         const expectedTableData = [

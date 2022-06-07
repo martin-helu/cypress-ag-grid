@@ -6,6 +6,7 @@ import {
   sortedCollectionByProperty,
 } from "../../src/helpers/arrayHelpers";
 import { filterOperator } from "../../src/agGrid/filterOperator.enum";
+import "../support"
 
 const _pageSize = 5;
 const agGridSelector = "#myGrid";

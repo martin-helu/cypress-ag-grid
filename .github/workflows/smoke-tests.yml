@@ -11,5 +11,6 @@ jobs:
         with: 
           browser: chrome
           spec: cypress/integration/ag-grid-helu-spec.js
+          env: grepTags=@smoke
           
       

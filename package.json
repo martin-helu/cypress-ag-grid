@@ -25,14 +25,13 @@
     "merge-reports": "jrm combined.xml \"results/*.xml\"",
     "post-tests": "jrm ./cypress/results/combined-report.xml \"./cypress/results/results-*.xml\"",
     "smoke": "npm run chrome-tests || npm run post-tests"
-    
-    
   },
   "author": "Kerry McKeever <kerry@kerrymckeever.com>",
   "license": "MIT",
   "devDependencies": {
     "cypress": "^8.5.0",
     "cypress-ag-grid": "^1.2.0",
+    "cypress-grep": "^2.14.0",
     "junit-report-merger": "^3.0.5"
   }
 }

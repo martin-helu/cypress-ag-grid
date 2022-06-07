@@ -16,7 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import '../../src/index'
-import "cypress-ag-grid";
+import "cypress-ag-grid"
+require('cypress-grep')()
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
